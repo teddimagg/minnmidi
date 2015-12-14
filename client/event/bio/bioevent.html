@@ -1,0 +1,50 @@
+<template name="bioevent">
+	<div class="bioeventview">
+		<div class="bioeventhead">
+			<h1>{{nafn}}</h1>
+			<button name="buy">Kaupa miða</button>
+		</div>
+		<div class="bioeventleft">
+			<img src="{{mynd}}"/>
+		</div>
+		<div class="bioeventright">
+			<h2>Lýsing</h2>
+			<p>{{lysing}}</p>
+		</div>
+		<div class="bioeventweek">
+			{{> week}}
+		</div>
+	</div>
+</template>
+
+<template name="week">
+	<table>
+		<tr>
+		    <td>Mán</td>
+		    <td>Þri</td>
+		    <td>Mið</td>
+		    <td>Fim</td>
+		    <td>Fös</td>
+		    <td>Lau</td>
+		    <td>Sun</td>
+		</tr>
+		<tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		</tr>
+		<tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		</tr>
+	</table>
+</template>

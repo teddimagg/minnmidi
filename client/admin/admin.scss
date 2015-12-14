@@ -2,15 +2,31 @@
 
 .admincat
 {
-	min-height: 300px;
+	min-height: 500px;
+	padding: 20px 0;
 	background:
 	{
 		color: $dgray;
 	}	
+
+	h1
+	{
+		color: white;
+		padding: 0;
+		margin: 0;
+	}
+
+	img
+	{
+		float: right;
+		margin: 30px;
+		height: 400px;
+	}
 }
 
 .catform
 {
+	float: left;
 	width: 500px;
 	padding: 20px;
 
@@ -50,6 +66,16 @@
 		}
 	}
 
+	.rembtn
+	{
+		margin-left: 10px;
+		background-color: $orange;
+		&:hover
+		{
+			background-color: #ae323b;
+		}
+	}
+
 	ul
 	{
 		margin-right: 43px;
@@ -57,5 +83,33 @@
 		width: 200px;
 		float: left;
 		list-style: none;
+	}
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+.allevents
+{
+	float: right;
+	width: 300px;
+	ul
+	{
+
+		height: 400px;
+		overflow: scroll;
+
+		list-style: none;
+		li
+		{
+			text-align: right;
+			padding: 10px;
+			transition: all 0.2s ease-in-out;
+			&:hover
+			{
+				background-color: $lgray;
+			}
+		}
 	}
 }

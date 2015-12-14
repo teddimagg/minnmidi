@@ -12,7 +12,6 @@ Template.nav.onRendered(function() {
   $(window).resize(function() {
   	if($(window).width() < 800)
   	{
-  		console.log("BURGER");
   		Session.set('burger', true);
   	}
   	else
@@ -84,6 +83,9 @@ Template.navLogin.events({
 	'click .logoutbtn': function(event){
 		event.preventDefault();
 		Meteor.logout();
+	},
+	'click .fbbtn': function(event){
+		console.log("SMEGMA");
 	}
 });
 

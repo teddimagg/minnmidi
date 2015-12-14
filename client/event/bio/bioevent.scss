@@ -1,0 +1,80 @@
+@import "../../../default";
+
+.bioeventview
+{
+	padding: 20px 20px;
+	background:
+	{
+		color: $dgray;
+	}
+	color: white;
+}
+
+.bioeventhead
+{
+	height: 55px;
+	h1
+	{
+		padding: 0;
+		margin: 0;
+		float: left;
+	}	
+
+	button
+	{
+		float: right;
+		
+		border: none;
+		padding: 15px 20px;
+		font-size: 20px;
+		font-weight: 600;
+		color: white;
+		background-color: $orange;
+	}
+}
+
+.bioeventleft
+{
+	float: left;
+	img
+	{
+		height: 600px;
+	}	
+}
+
+.bioeventright
+{
+	float: left;
+	min-height: 600px;
+}
+
+@media only screen and (max-width : 600px) {
+	.bioeventhead
+	{
+		h1
+		{
+			width: 100%;
+			display: block;
+			text-align: center;
+		}
+
+		button
+		{
+			width: 90%;
+			display: block;
+			margin: 10px 5%;
+		}
+	}
+
+	.bioeventleft
+	{
+		display: block;
+		img
+		{
+			width: 90%;
+			height: 100%;
+			margin: 0 5%;
+		}	
+	}
+
+}

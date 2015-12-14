@@ -14,12 +14,35 @@
 		</ul>
 		<button>ADD</button>
 		</form>
-	</div>
+		<div class="allevents">
+		<ul>
+		{{#each movieEvents}}
+			<li><a href="/admin/{{_id}}">{{nafn}}</a></li>
+		{{/each}}
+		</ul>
+		</div>
 
-	<div class="adminevent">
 	</div>
 </template>
 
-<template name="dates">
-	
+<template name="editmovie">
+	<div class="admincat">
+		<form class="catform">
+		<h1>{{nafn}}</h1>
+		<ul>
+			<li><input type="text" name="nafn" value="{{nafn}}"></li>
+			<li><input type="text" name="mynd" value="{{mynd}}"></li>
+			<li><input type="text" name="trailer" value="{{trailer}}"></li>
+			<li><input type="text" name="lengd" value="{{lengd}}"></li>
+		</ul>
+		<ul>
+			<li><textarea name="lysing" value="{{lysing}}"></textarea></li>
+			<li><input type="text" name="tungumal" value="{{tungumal}}"></li>
+			<li><input type="text" name="tegund" value="{{tegund}}"></li>
+		</ul>
+		<button class="editbtn">EDIT</button>
+		<button class="rembtn">EYÐA</button>
+		</form>
+		<img src="{{mynd}}"/>
+	</div>
 </template>

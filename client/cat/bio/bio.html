@@ -2,6 +2,7 @@
 	<div class="bioview">
 		<div class="wrap">
 			{{#each movieEvent}}
+			<a href="/bio/{{_id}}">
 				<div class="bioitem">
 					<div class="innercontent">
 						<img src="{{mynd}}"/>
@@ -10,6 +11,7 @@
 						<h1>{{nafn}}</h1>
 					</div>
 				</div>
+			</a>
 			{{/each}}
 		</div>
 	</div>
