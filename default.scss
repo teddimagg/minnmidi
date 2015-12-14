@@ -1,0 +1,25 @@
+$blue: #242738;
+$orange: #F1B52E;
+$dgray: #677077;
+$lgray: #B5B5B7;
+
+body
+{
+	background: {
+		color: $lgray;
+	}
+	font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+a
+{
+	color: white;
+	text-decoration: none;
+}
+
+textarea
+{
+	font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}

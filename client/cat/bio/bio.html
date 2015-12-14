@@ -1,0 +1,16 @@
+<template name="bio">
+	<div class="bioview">
+		<div class="wrap">
+			{{#each movieEvent}}
+				<div class="bioitem">
+					<div class="innercontent">
+						<img src="{{mynd}}"/>
+					</div>
+					<div class="innertitle">
+						<h1>{{nafn}}</h1>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>

@@ -1,0 +1,139 @@
+@import "../../../default";
+
+.nav
+{
+	width: 100%;
+	height: 80px;
+	background: {
+		color: $blue;
+	}
+}
+
+.navlogo
+{
+	float: left;
+	img
+	{
+		height: 55px;
+		width: 55px;
+	}
+	padding: 13px;
+}
+
+.navprofile, .navsearch
+{
+	float: right;
+	img
+	{
+		height: 35px;
+		width: 35px;
+	}
+	padding: 22px 22px 22px 0;
+
+	&:hover
+	{
+		cursor: pointer;
+	}
+}
+
+.navgroups
+{
+	width: 50%;
+	min-width: 570px;
+	float: left;
+	li
+	{
+		display: inline-block;
+		margin: 7px 10px;
+	}
+
+	a
+	{
+		color: white;
+		font-size: 30px;
+		transition: all 0.3s ease-in-out;
+		&:hover
+		{
+			color: $orange;
+			cursor: pointer;
+		}
+	}
+}
+
+.login
+{
+	z-index: 3;
+	height: 205px;
+	width: 300px;
+	position: absolute;
+	
+	margin: 0 55%;
+	top: 100px;
+	padding-top: 10px;
+
+	background: {
+		color: $blue;
+	}
+
+	input
+	{
+		border: none;
+		width: 80%;
+		padding: 15px;
+		margin: 5px 15px;
+	}
+
+	.loginbtn
+	{
+		width: 90%;
+		padding: 10px;
+		margin: 5px 15px;
+		border: none;
+		background:{
+			color: $orange;
+		}
+		transition: all 0.3s ease-in-out;
+		&:hover
+		{
+			background-color: rgba($orange, 0.8);
+		}
+	}
+
+	.regbtn, .fbbtn
+	{
+		width: 43%;
+		padding: 8px;
+		display: inline;
+		border: 0;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.regbtn
+	{
+		float: left;
+		margin: 5px 0 5px 15px;
+		background-color: rgba($orange, 0.5);
+		&:hover
+		{
+			background-color: $orange;
+		}
+	}
+
+	.fbbtn
+	{
+		float: right;
+		margin: 5px 15px 5px 0px;
+		height: 30px;
+		background: {
+			color: rgba(#3399FF, 0.5);
+			image: url("/images/nav/fb.svg");
+			size: 22px 22px;
+			position: center;
+			repeat: no-repeat;
+		}
+		&:hover
+		{
+			background-color: #3399FF;
+		}
+	}
+}

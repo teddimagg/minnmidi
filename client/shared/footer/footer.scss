@@ -1,0 +1,46 @@
+@import "../../../default";
+
+.footer
+{
+	height: 350px;
+	width: 100%;
+	display: inline-block;
+	bottom: 0;
+	background-color: $blue;
+	ul
+	{
+		padding: 30px 60px;
+		margin: 0;
+		display: inline-block;
+		color: white;
+		list-style: none;
+		float: left;
+	}
+
+	h1
+	{
+		padding: 0;
+		margin: 0;
+	}
+
+	input, textarea
+	{
+		padding: 10px;
+		margin-bottom: 10px;
+		border: none;
+		background-color: rgba(white, 0.2);
+		color: white;
+	}
+
+	textarea
+	{
+		font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+		resize: none;
+		width: 169px;
+	}
+
+	input[type=button]
+	{
+		float: right;
+	}
+}

@@ -1,0 +1,27 @@
+<template name="nav">
+	<div class="nav">
+		<div class="navlogo"><img src="images/nav/m.svg"></div>
+		<ul class="navgroups">
+			<li><a href="/bio">bíó</a></li>
+			<li><a href="/">tónleikar</a></li>
+			<li><a href="/">leikhús</a></li>
+			<li><a href="/">hátíðir</a></li>
+			<li><a href="/">íþróttir</a></li>
+		</ul>
+		<div class="navsearch"><img src="images/nav/search.svg"></div>
+		<div class="navprofile"><img src="images/nav/profile.svg"></div>
+	</div>
+	{{#if isLogin}}
+		{{> navLogin}}
+	{{/if}}
+</template> 
+
+<template name="navLogin">
+	<div class="login">
+		<input type="text" placeholder="Netfang">
+		<input type="password" placeholder="Lykilorð">
+		<button class="loginbtn" type="submit" id="login-button">Innskrá</button>
+		<button class="regbtn" type="submit">Nýskrá</button>
+		<button class="fbbtn" type="submit"></button>
+	</div>
+</template>
