@@ -20,6 +20,22 @@
 	padding: 13px;
 }
 
+.navBurger
+{
+	float: left;
+	margin: 20px 10px;
+	img
+	{
+		height: 40px;
+		width: 40px;
+	}
+
+	&:hover
+	{
+		cursor: pointer;
+	}
+}
+
 .navprofile, .navsearch
 {
 	float: right;
@@ -59,6 +75,35 @@
 		}
 	}
 }
+
+
+.burgergroups
+{
+	z-index: 2;
+	width: 90%;
+	min-height: 300px;
+	position: absolute;
+	margin: 5%;
+	background: $blue;
+	padding-bottom: 30px;
+
+	ul
+	{
+		list-style: none;
+		font-size: 30px;
+
+		li
+		{
+			padding: 20px;
+			margin-right: 10%;
+			border-bottom: solid;
+			border-color: white;
+			border-width: 1px;
+		}
+	}
+}
+
+
 
 .login, .register, .loggedIn
 {

@@ -1,16 +1,19 @@
 <template name="nav">
 	<div class="nav">
 		<div class="navlogo"><a href="/"><img src="images/nav/m.svg"></a></div>
+		{{#if isBurger}}
+		<div class="navBurger"><img src="images/nav/burger.svg"></div>
+		{{else}}
 		<ul class="navgroups">
-			<li><a href="/bio">bíó</a></li>
-			<li><a href="/">tónleikar</a></li>
-			<li><a href="/">leikhús</a></li>
-			<li><a href="/">hátíðir</a></li>
-			<li><a href="/">íþróttir</a></li>
+			{{> groups}}
 		</ul>
+		{{/if}}
 		<div class="navsearch"><img src="images/nav/search.svg"></div>
 		<div class="navprofile"><img src="images/nav/profile.svg"></div>
 	</div>
+	{{#if isBurgerView}}
+		{{> burgerList}}
+	{{/if}}
 	{{#if isLogin}}
 		{{> navLogin}}
 	{{/if}}
@@ -44,4 +47,20 @@
 		<input type="password" name="passAgain" placeholder="Lykilorð aftur">
 		<button class="loginbtn" type="submit" id="login-button">Nýskrá</button>
 	</form>
+</template>
+
+<template name="burgerList">
+	<div class="burgergroups">
+		<ul class="burgerList">
+			{{> groups}}
+		</ul>
+	</div>
+</template>
+
+<template name="groups">
+	<li><a href="/bio">bíó</a></li>
+	<li><a href="/">tónleikar</a></li>
+	<li><a href="/">leikhús</a></li>
+	<li><a href="/">hátíðir</a></li>
+	<li><a href="/">íþróttir</a></li>
 </template>
