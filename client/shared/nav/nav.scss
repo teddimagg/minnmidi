@@ -60,10 +60,9 @@
 	}
 }
 
-.login
+.login, .register, .loggedIn
 {
 	z-index: 3;
-	height: 205px;
 	width: 300px;
 	position: absolute;
 	
@@ -83,7 +82,7 @@
 		margin: 5px 15px;
 	}
 
-	.loginbtn
+	.loginbtn, .logoutbtn
 	{
 		width: 90%;
 		padding: 10px;
@@ -136,4 +135,14 @@
 			background-color: #3399FF;
 		}
 	}
+}
+
+.login
+{
+	height: 205px;
+}
+
+.register
+{
+	height: 220px;
 }
