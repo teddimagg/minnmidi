@@ -4,20 +4,23 @@
 		<ul>
 			<li><input type="text" name="nafn" placeholder="Nafn"></li>
 			<li><input type="text" name="mynd" placeholder="Mynd"></li>
+			<li><input type="text" name="leikstjori" placeholder="Leikstjóri"></li>
 			<li><input type="text" name="trailer" placeholder="Trailer"></li>
 			<li><input type="text" name="lengd" placeholder="Lengd"></li>
 		</ul>
 		<ul>
 			<li><textarea name="lysing" placeholder="Lýsing"></textarea></li>
+			<li><input type="text" name="leikarar" placeholder="Helstu leikarar"></li>
 			<li><input type="text" name="tungumal" placeholder="Tungumál"></li>
 			<li><input type="text" name="tegund" placeholder="Tegund"></li>
 		</ul>
-		<button>ADD</button>
+		<button class="addbtn">ADD</button>
+		<button class="autobtn">AUTO</button>
 		</form>
 		<div class="allevents">
 		<ul>
 		{{#each movieEvents}}
-			<li><a href="/admin/{{_id}}">{{nafn}}</a></li>
+			<a href="/admin/{{_id}}"><li>{{nafn}}</li></a>
 		{{/each}}
 		</ul>
 		</div>
@@ -30,15 +33,17 @@
 		<form class="catform">
 		<h1>{{nafn}}</h1>
 		<ul>
-			<li><input type="text" name="nafn" value="{{nafn}}"></li>
-			<li><input type="text" name="mynd" value="{{mynd}}"></li>
-			<li><input type="text" name="trailer" value="{{trailer}}"></li>
-			<li><input type="text" name="lengd" value="{{lengd}}"></li>
+			<li><input type="text" name="nafn" value="{{nafn}}" placeholder="Nafn"></li>
+			<li><input type="text" name="mynd" value="{{mynd}}" placeholder="Mynd"></li>
+			<li><input type="text" name="leikstjori" placeholder="Leikstjóri" value="{{leikstjori}}"></li>
+			<li><input type="text" name="trailer" value="{{trailer}}" placeholder="Sýnishorn"></li>
+			<li><input type="text" name="lengd" value="{{lengd}}" placeholder="Lengd"></li>
 		</ul>
 		<ul>
-			<li><textarea name="lysing" value="{{lysing}}"></textarea></li>
-			<li><input type="text" name="tungumal" value="{{tungumal}}"></li>
-			<li><input type="text" name="tegund" value="{{tegund}}"></li>
+			<li><textarea name="lysing" value="{{lysing}}" placeholder="Lýsing"></textarea></li>
+			<li><input type="text" name="leikarar" placeholder="Helstu leikarar" value="{{leikarar}}"></li>
+			<li><input type="text" name="tungumal" value="{{tungumal}}" placeholder="Tungumál"></li>
+			<li><input type="text" name="tegund" value="{{tegund}}" placeholder="Tegund"></li>
 		</ul>
 		<button class="editbtn">EDIT</button>
 		<button class="rembtn">EYÐA</button>

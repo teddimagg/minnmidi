@@ -76,6 +76,16 @@
 		}
 	}
 
+	.autobtn
+	{
+		margin-left: 10px;
+		background-color: $orange;
+		&:hover
+		{
+			background-color: #093;
+		}
+	}
+
 	ul
 	{
 		margin-right: 43px;
