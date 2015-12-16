@@ -24,3 +24,13 @@ textarea, button, select
 {
 	font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
+
+.active
+{
+	background-color: $orange;
+}
+
+.inactive
+{
+	background-color: rgba(white, 0.5);
+}

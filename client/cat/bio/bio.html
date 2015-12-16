@@ -1,5 +1,27 @@
 <template name="bio">
-	<div class="biosort">
+	{{> filter}}
+	<div class="bioview">
+		<div class="wrap">
+			{{#each movieEvent}}
+			<a href="/bio/{{_id}}">
+				<div class="bioitem">
+					<div class="innercontent">
+						<img src="{{mynd}}"/>
+					</div>
+					<div class="innertitle">
+						<h1>{{nafn}}</h1>
+					</div>
+				</div>
+			</a>
+			{{/each}}
+		</div>
+	</div>
+</template>
+
+
+<!-- Filterinn only -->
+<template name="filter">
+<div class="biosort">
 		<div class="biomap">
 			<img src="/images/nav/island.svg"/>
 			<select class="biosvaedi">
@@ -19,7 +41,10 @@
 				{{/each}}
 				</ul>
 			</div>
+			<img src="/images/bio/sort/scrollerw.svg" class="up"/>
+			<img src="/images/bio/sort/scrollerw.svg" class="down"/>
 		</div>
+		{{#if isGenreView}}
 		<div class="biotegund">
 			<button>Drama</button>
 			<button>Teikni</button>
@@ -29,6 +54,12 @@
 			<button>Ævintýra</button>
 			<button>Hasar</button>
 			<button>Annað</button>
+		</div>
+		{{/if}}
+		<div class="bioorder">
+			<button class="byname inactive">Stafrófsröð</button>
+			<button class="bydate active">Nýlegast</button>
+			<button class="byaird inactive">Næst sýnt</button>
 		</div>
 		<div class="biohus">
 			<p>Hvaða bíó?</p>
@@ -40,23 +71,8 @@
 					<li>Sambíó - Egilshöll</li>
 				</ul>
 			</div>
-		</div>
-	</div>
-
-	<div class="bioview">
-		<div class="wrap">
-			{{#each movieEvent}}
-			<a href="/bio/{{_id}}">
-				<div class="bioitem">
-					<div class="innercontent">
-						<img src="{{mynd}}"/>
-					</div>
-					<div class="innertitle">
-						<h1>{{nafn}}</h1>
-					</div>
-				</div>
-			</a>
-			{{/each}}
+			<img src="/images/bio/sort/scrollerw.svg" class="up"/>
+			<img src="/images/bio/sort/scrollerw.svg" class="down"/>
 		</div>
 	</div>
 </template>

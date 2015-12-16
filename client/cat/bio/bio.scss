@@ -69,10 +69,11 @@
 
 	.biodags
 	{
-		width: 150px;
+		width: 170px;
 		color: white;
 		float: left;
 		padding: 0 10px;
+		position: relative;
 	    
 	    p
 	    {
@@ -108,6 +109,26 @@
 				float: right;
 			}
 		}
+
+		img
+		{
+			height: 8px;
+			position: absolute;
+			right: 0;
+		}
+
+		.up
+		{
+			top: 42px;
+		}
+
+		.down
+		{
+			bottom: 8px;
+		    -ms-transform: rotate(180deg); /* IE 9 */
+		    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		    transform: rotate(180deg);
+		}
 	}
 
 	.biotegund
@@ -116,7 +137,7 @@
 		float: left;
 		height: 150px;
 		width: 40%;
-
+		margin-left: 35px;
 		button
 		{
 			color: white;
@@ -147,10 +168,11 @@
 
 	.biohus
 	{
-		width: 160px;
+		width: 170px;
 		color: white;
-		float: left;
+		float: right;
 		padding: 0 0 5px 10px;
+		position: relative;
 	    
 	    p
 	    {
@@ -181,7 +203,50 @@
 				}
 			}
 		}
+		img
+		{
+			height: 8px;
+			position: absolute;
+			right: 20px;
+		}
+
+		.up
+		{
+			top: 42px;
+		}
+
+		.down
+		{
+			bottom: 10px;
+		    -ms-transform: rotate(180deg); /* IE 9 */
+		    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		    transform: rotate(180deg);
+		}
 	}
+
+	.bioorder
+	{
+		width: 130px;
+		padding: 10px;
+		float: right;
+		button
+		{
+			width: 120px;
+			padding: 13px 10px;
+			margin-bottom: 10px;
+			border: none;
+			&:active
+			{
+				background-color: $orange;
+			}
+			&:focus
+			{
+				outline: none;
+			}
+		}
+	}
+
+	
 
 }
 

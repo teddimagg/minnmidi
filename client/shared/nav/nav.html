@@ -1,15 +1,15 @@
 <template name="nav">
 	<div class="nav">
-		<div class="navlogo"><a href="/"><img src="images/nav/m.svg"></a></div>
+		<div class="navlogo"><a href="/"><img src="/images/nav/m.svg"></a></div>
 		{{#if isBurger}}
-		<div class="navBurger"><img src="images/nav/burger.svg"></div>
+		<div class="navBurger"><img src="/images/nav/burger.svg"></div>
 		{{else}}
 		<ul class="navgroups">
 			{{> groups}}
 		</ul>
 		{{/if}}
-		<div class="navsearch"><img src="images/nav/search.svg"></div>
-		<div class="navprofile"><img src="images/nav/profile.svg"></div>
+		<div class="navsearch"><img src="/images/nav/search.svg"></div>
+		<div class="navprofile"><img src="/images/nav/profile.svg"></div>
 	</div>
 	{{#if isBurgerView}}
 		{{> burgerList}}
