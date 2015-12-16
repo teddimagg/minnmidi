@@ -22,3 +22,9 @@ fourseven:scss
 iron:router
 accounts-password
 accounts-facebook
+bobbigmac:scrape-parser
+meteorhacks:npm
+
+
+npm-container
+momentjs:moment

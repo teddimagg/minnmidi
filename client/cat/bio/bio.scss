@@ -1,5 +1,190 @@
 @import "../../../default";
 
+
+.biosort
+{
+	padding: 5px 0;
+	height: 170px;
+	background-color: $ddgray;
+
+	.biomap 
+	{
+		position: relative;
+		float: left;
+		padding: 15px 20px;
+		width: 150px;
+		img
+		{
+			padding: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+		.arrow
+		{
+			position: absolute;
+			right: 28px;
+			bottom: 30px;
+			width: 10px;
+			height: 15px;
+		}
+		select
+		{
+			color: white;
+			width: 100%;
+			padding: 10px;
+			border: none;
+			background: none;
+		    text-indent: 6px;
+		    font-size: 16px;
+
+		    &:focus
+		    {
+		    	outline: none;
+		    }
+
+		    &:hover
+		    {
+		    	cursor: pointer;
+		    }
+
+			option
+			{
+			    padding: 5px;
+				background-color: $ddgray;
+				margin: 10px;
+				&:hover
+				{
+	                box-shadow: 0 0 10px 100px #FED20F inset;
+	                transition: all .2s ease-in-out;
+				}
+
+				p
+				{
+					padding: 10px;
+				}
+			}
+		}
+	}
+
+	.biodags
+	{
+		width: 150px;
+		color: white;
+		float: left;
+		padding: 0 10px;
+	    
+	    p
+	    {
+	    	color: rgba(white, 0.5);
+	    	margin: 10px 5px 5px 5px;
+	    }
+
+		.bioweek
+		{
+			height: 120px;
+			width: 160px;
+			overflow-y: scroll;
+		}
+
+		ul
+		{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li
+			{
+				transition: all 0.2s ease-in-out;
+				padding: 7px 5px 5px 5px;
+				&:hover
+				{
+					background-color: $orange;
+					cursor: pointer;
+				}
+			}
+
+			span
+			{
+				float: right;
+			}
+		}
+	}
+
+	.biotegund
+	{
+		padding: 10px 20px;
+		float: left;
+		height: 150px;
+		width: 40%;
+
+		button
+		{
+			color: white;
+			margin: 0 0 10px 10px;
+			width: 23%;
+			height: 70px;
+			float: left;
+			background: none;
+			border: solid 1px;
+			border-color: rgba(white, 0.4);
+			font-size: 16px;
+			font-weight: 500;
+
+			transition: all 0.3s ease-in-out;
+			&:hover
+			{
+				background-color: rgba(white, 0.3);
+				cursor: pointer;
+			}
+
+			&:focus
+			{
+				outline: none;
+				background-color: rgba(white, 0.3);
+			}
+		}
+	}
+
+	.biohus
+	{
+		width: 160px;
+		color: white;
+		float: left;
+		padding: 0 0 5px 10px;
+	    
+	    p
+	    {
+	    	color: rgba(white, 0.5);
+	    	margin: 10px 5px 5px 5px;
+	    }
+
+		.biohusin
+		{
+			height: 120px;
+			width: 160px;
+			overflow-y: scroll;
+		}
+
+		ul
+		{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			li
+			{
+				transition: all 0.2s ease-in-out;
+				padding: 7px 5px 5px 5px;
+				&:hover
+				{
+					background-color: $orange;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+}
+
 .bioview
 {
 	padding: 5px 0;

@@ -1,7 +1,13 @@
 Meteor.methods({
-		fetchFromService: function(name) {
+		fetchFromService: function(name, year) {
 			name = name.replace(/\s/g, "+");
-			var url = "http://www.omdbapi.com/?t="+name+"&y=&plot=short&r=json";
+			if(year === undefined)
+			{
+				year = "";
+			}
+
+			var url = "http://www.omdbapi.com/?t="+name+"&y="+year+"&plot=short&r=json";
+			console.log(url);
 			//synchronous GET
 			var result = Meteor.http.get(url, {timeout:30000});
 			if(result.statusCode==200) {

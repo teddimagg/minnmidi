@@ -29,20 +29,20 @@ Template.admin.events({
 	{
 		event.preventDefault();
 		var name = $('[name="nafn"]').val();
-		Meteor.call('fetchFromService', name, function(err, respJson) {
-				if(err) {
-					window.alert("Error: " + err.reason);
-					console.log("error occured on receiving data on server. ", err );
-				} else {
-					event.preventDefault();
-					$('[name="mynd"]').val(respJson.Poster);
-					$('[name="lysing"]').val(respJson.Plot);
-					$('[name="lengd"]').val(respJson.Runtime);
-					$('[name="leikarar"]').val(respJson.Actors);
-					$('[name="leikstjori"]').val(respJson.Director);
-				}
-				$('#fetchButton').removeAttr('disabled').val('Fetch');
-			});
+		var year = $('[name="year"]').val();
+		Meteor.call('fetchFromService', name, year, function(err, respJson) {
+			if(err) {
+				window.alert("Error: " + err.reason);
+				console.log("error occured on receiving data on server. ", err );
+			} else {
+				event.preventDefault();
+				$('[name="mynd"]').val(respJson.Poster);
+				$('[name="lysing"]').val(respJson.Plot);
+				$('[name="lengd"]').val(respJson.Runtime);
+				$('[name="leikarar"]').val(respJson.Actors);
+				$('[name="leikstjori"]').val(respJson.Director);
+			}
+		});
 	}
 });
 
@@ -50,6 +50,12 @@ Template.admin.helpers({
 	'movieEvents': function()
 	{
 		return movieEvents.find().fetch();
+	},
+	'getYear': function()
+	{
+		var date = new Date();
+		var year = moment(date).format("YYYY");
+		return year;
 	}
 });
 

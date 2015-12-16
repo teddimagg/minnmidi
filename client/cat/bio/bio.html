@@ -1,4 +1,48 @@
 <template name="bio">
+	<div class="biosort">
+		<div class="biomap">
+			<img src="/images/nav/island.svg"/>
+			<select class="biosvaedi">
+				<option class="bioopt">Allt landið</option>
+				<option><p>Reykjavík</p></option>
+				<option>Selfoss</option>
+				<option>Akureyri</option>
+			</select>
+			<img src="/images/nav/arr.svg" class="arrow"/>
+		</div>
+		<div class="biodags">
+			<p>Hvaða dag?</p>
+			<div class="bioweek" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+				<ul>
+				{{#each getWeek}}
+					<li>{{this.dd}}<span>{{this.dn}}</span></li>
+				{{/each}}
+				</ul>
+			</div>
+		</div>
+		<div class="biotegund">
+			<button>Drama</button>
+			<button>Teikni</button>
+			<button>Hryllings</button>
+			<button>Spennu</button>
+			<button>Gaman</button>
+			<button>Ævintýra</button>
+			<button>Hasar</button>
+			<button>Annað</button>
+		</div>
+		<div class="biohus">
+			<p>Hvaða bíó?</p>
+			<div class="biohusin" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+				<ul>
+					<li>Laugarásbíó</li>
+					<li>Smárabíó</li>
+					<li>Sambíó - Kringlan</li>
+					<li>Sambíó - Egilshöll</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
 	<div class="bioview">
 		<div class="wrap">
 			{{#each movieEvent}}

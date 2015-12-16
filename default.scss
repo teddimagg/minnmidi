@@ -2,6 +2,7 @@ $blue: #242738;
 $orange: #F1B52E;
 $dgray: #677077;
 $lgray: #B5B5B7;
+$ddgray: #1a1d28;
 
 body
 {
@@ -19,7 +20,7 @@ a
 	text-decoration: none;
 }
 
-textarea, button
+textarea, button, select
 {
 	font-family: "Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
