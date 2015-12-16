@@ -36,15 +36,49 @@ Template.admin.events({
 				console.log("error occured on receiving data on server. ", err );
 			} else {
 				event.preventDefault();
+				$('[name="nafn"]').val(respJson.Title);
 				$('[name="mynd"]').val(respJson.Poster);
 				$('[name="lysing"]').val(respJson.Plot);
 				$('[name="lengd"]').val(respJson.Runtime);
 				$('[name="leikarar"]').val(respJson.Actors);
 				$('[name="leikstjori"]').val(respJson.Director);
+				var genres = respJson.Genre.split(",");
+				for(i = 0; i < genres.length;  i++)
+				{
+					genres[i] = genres[i].trim();
+					genres[i] = genreTrans(genres[i]);
+				}
+				$('[name="tegund"]').val(genres);
 			}
 		});
 	}
 });
+
+function genreTrans(genre)
+{
+	switch(genre){
+		case "Adventure":
+			genre = "Ævintýra";
+			break;
+		case "Action":
+			genre = "Hasar";
+			break;
+		case "Comedy":
+			genre = "Gaman";
+			break;		
+		case "Animation":
+			genre = "Teikni";
+			break;
+		case "Horror":
+			genre = "Hryllings";
+			break;
+		case "Thriller":
+			genre = "Spennu";
+			break;
+	}
+
+	return genre;
+}
 
 Template.admin.helpers({
 	'movieEvents': function()

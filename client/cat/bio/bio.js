@@ -1,5 +1,4 @@
 Session.set('genreView', true);
-Session.set('sortType', 1);
 
 if($(window).width() < 800)
 {
@@ -7,15 +6,17 @@ if($(window).width() < 800)
 }
 
 Template.nav.onRendered(function() {
-  $(window).resize(function() {
-  	if($(window).width() < 800)
-  	{
-  		Session.set('genreView', false);
-  	}
-  	else
-  	{
-  		Session.set('genreView', true);
-  	}
+	Session.set('sortType', 1);
+	Session.set('genreType', "");
+  	$(window).resize(function() {
+	  	if($(window).width() < 800)
+	  	{
+	  		Session.set('genreView', false);
+	  	}
+	  	else
+	  	{
+	  		Session.set('genreView', true);
+	  	}
   });
 });
 
@@ -23,13 +24,14 @@ Template.bio.helpers({
 	'movieEvent': function()
 	{
 		var sort = Session.get('sortType');
+		var gen = Session.get('genreType');
 		var ret;
 		switch(sort){
 			case 0:
-				ret = movieEvents.find({},{sort:{nafn: 1}});
+				ret = movieEvents.find({"tegund": {'$regex' : '.*' + gen + '.*'}},{sort:{nafn: 1}}).fetch();;
 				break;
 			case 1:
-				ret = movieEvents.find().fetch();
+				ret = movieEvents.find({"tegund": {'$regex' : '.*' + gen + '.*'}}).fetch();
 				break;
 			case 2:
 				sortString = "title: 1";
@@ -96,6 +98,24 @@ Template.filter.events({
 		$(".byname").addClass("inactive");
 		$(".bydate").addClass("inactive");
 		$(".byaird").addClass("active");
+	},
+	'click .biotegund button': function(event){
+		var buttons = document.getElementsByClassName("gen");
+		for(i = 0; i < buttons.length; i++)
+		{
+			buttons[i].style.backgroundColor = "#1a1d28";
+		}
+		var genre = event.currentTarget.innerHTML;
+		if(genre == Session.get('genreType'))
+		{
+			Session.set('genreType', "");	
+		}
+		else
+		{
+			event.currentTarget.style.backgroundColor = "rgba(255,255,255,0.3)";
+			Session.set('genreType', genre);
+		}
+
 	}
 });
 

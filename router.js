@@ -3,9 +3,18 @@ Router.configure({
 });
 
 Router.map(function(){
-	this.route('home',{path:'/'});
-	this.route('/admin');
-	this.route('/bio');
+	this.route('home',{path:'/',    
+		onAfterAction: function() {
+      	return document.title = "Minnmiði";
+    }});
+	this.route('/admin',{ 
+		onAfterAction: function() {
+      	return document.title = "Minnmiði - Admin";
+    }});
+	this.route('/bio',{
+		onAfterAction: function() {
+      	return document.title = "Minnmiði - Bíó";
+    }});
 });
 
 Router.route('/admin/:_id', {
