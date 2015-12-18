@@ -26,9 +26,9 @@
 			<img src="/images/nav/island.svg"/>
 			<select class="biosvaedi">
 				<option class="bioopt">Allt landið</option>
-				<option><p>Reykjavík</p></option>
-				<option>Selfoss</option>
-				<option>Akureyri</option>
+					<option>Reykjavík</option>
+					<option>Selfoss</option>
+					<option>Akureyri</option>
 			</select>
 			<img src="/images/nav/arr.svg" class="arrow"/>
 		</div>
@@ -37,7 +37,7 @@
 			<div class="bioweek" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 				<ul>
 				{{#each getWeek}}
-					<li>{{this.dd}}<span>{{this.dn}}</span></li>
+					<li class="biodagur">{{this.dd}}<span>{{this.dn}}</span></li>
 				{{/each}}
 				</ul>
 			</div>
@@ -46,14 +46,9 @@
 		</div>
 		{{#if isGenreView}}
 		<div class="biotegund">
-			<button class="gen">Drama</button>
-			<button class="gen">Teikni</button>
-			<button class="gen">Hryllings</button>
-			<button class="gen">Spennu</button>
-			<button class="gen">Gaman</button>
-			<button class="gen">Ævintýra</button>
-			<button class="gen">Hasar</button>
-			<button class="gen">Sci-Fi</button>
+			{{#each biogenre}}
+			<button class="{{_id}}">{{nafn}}</button>
+			{{/each}}
 		</div>
 		{{/if}}
 		<div class="bioorder">
@@ -65,10 +60,9 @@
 			<p>Hvaða bíó?</p>
 			<div class="biohusin" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
 				<ul>
-					<li>Laugarásbíó</li>
-					<li>Smárabíó</li>
-					<li>Sambíó - Kringlan</li>
-					<li>Sambíó - Egilshöll</li>
+					{{#each biohus}}
+					<li class="{{nm}}">{{nafn}}</li>
+					{{/each}}
 				</ul>
 			</div>
 			<img src="/images/bio/sort/scrollerw.svg" class="up"/>

@@ -8,7 +8,14 @@ Template.home.events({
             Session.set('bio', result);
         });
         var smegma = Session.get('bio');
-        var movies = [];
+
+        console.log(smegma);
+    }
+});
+
+/**
+ *
+ *         var movies = [];
 
         var s = smegma.length;
         console.log(smegma.length);
@@ -41,6 +48,5 @@ Template.home.events({
         }
 
         console.log(movies);
-        //console.log(smegma);
-    }
-});
+ *
+ */

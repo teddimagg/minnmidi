@@ -8,6 +8,7 @@ if($(window).width() < 800)
 Template.nav.onRendered(function() {
 	Session.set('sortType', 1);
 	Session.set('genreType', "");
+	Session.set('biohus', "");
   	$(window).resize(function() {
 	  	if($(window).width() < 800)
 	  	{
@@ -25,13 +26,28 @@ Template.bio.helpers({
 	{
 		var sort = Session.get('sortType');
 		var gen = Session.get('genreType');
+		var bio = Session.get('biohus');
 		var ret;
 		switch(sort){
 			case 0:
-				ret = movieEvents.find({"tegund": {'$regex' : '.*' + gen + '.*'}},{sort:{nafn: 1}}).fetch();;
-				break;
+				if(bio == "")
+				{
+					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}},{sort:{nafn: 1}}).fetch();
+				}
+				else
+				{
+					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio},{sort:{nafn: 1}}).fetch();
+				}
+			break;
 			case 1:
-				ret = movieEvents.find({"tegund": {'$regex' : '.*' + gen + '.*'}}).fetch();
+				if(bio == "")
+				{
+					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}}).fetch();
+				}
+				else
+				{
+					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio}).fetch();
+				}
 				break;
 			case 2:
 				sortString = "title: 1";
@@ -49,6 +65,7 @@ Template.filter.helpers({
 		for(i = 1; i < 7; i++)
 		{
 			var tomorrow = moment(today).add(i,'days');
+			var y = tomorrow.format(".YYYY");
 			var st = '';
 			if(i == 1)
 			{
@@ -60,11 +77,12 @@ Template.filter.helpers({
 				st = vikan[dow];
 			}
 			tomorrow = tomorrow.format("DD.MM");
-			var tom = {dd:st,dn:tomorrow}
+			var tom = {dd:st,dn:tomorrow,y:y}
 			week[i] = tom;
 		}
+		var y = today.format(".YYYY");
 		today = today.format("DD.MM");
-		var tod = {dd:'Í dag',dn:today};
+		var tod = {dd:'Í dag',dn:today,y:y};
 		week[0] = tod;
 		
 		return week;
@@ -72,6 +90,14 @@ Template.filter.helpers({
 	'isGenreView': function()
 	{
 		return Session.get('genreView');
+	},
+	'biohus': function()
+	{
+		return biohus.find().fetch();
+	},
+	'biogenre': function()
+	{
+		return biogenre.find().fetch();
 	}
 
 });
@@ -101,21 +127,34 @@ Template.filter.events({
 	},
 	'click .biotegund button': function(event){
 		var buttons = document.getElementsByClassName("gen");
-		for(i = 0; i < buttons.length; i++)
-		{
-			buttons[i].style.backgroundColor = "#1a1d28";
-		}
+		$(".biotegund button").removeClass("bactive");
 		var genre = event.currentTarget.innerHTML;
 		if(genre == Session.get('genreType'))
 		{
-			Session.set('genreType', "");	
+			Session.set('genreType', "");
 		}
 		else
 		{
-			event.currentTarget.style.backgroundColor = "rgba(255,255,255,0.3)";
+			$("."+ this._id).addClass("bactive");
 			Session.set('genreType', genre);
 		}
-
+	},
+	'click .biodagur': function(event){		
+		console.log(this.dn + this.y);
+		//movieEvents.find({'syningar.timi': this}).fetch();
+	},
+	'click .biohus ul li': function(event){
+		$('.biohus ul li').removeClass("active");
+		var cur = Session.get('biohus');
+		if(cur == this.nm)
+		{	
+			Session.set('biohus', "");
+		}
+		else
+		{
+			$("."+ this.nm).addClass("active");
+			Session.set('biohus', this.nm);
+		}
 	}
 });
 

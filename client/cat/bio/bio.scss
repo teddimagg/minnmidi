@@ -145,9 +145,9 @@
 			width: 23%;
 			height: 70px;
 			float: left;
-			background: none;
 			border: solid 1px;
 			border-color: rgba(white, 0.4);
+			background-color: rgba(white, 0.1);
 			font-size: 16px;
 			font-weight: 500;
 
@@ -161,14 +161,14 @@
 			&:focus
 			{
 				outline: none;
-				background-color: rgba(white, 0.3);
+				//background-color: rgba(white, 0.3);
 			}
 		}
 	}
 
 	.biohus
 	{
-		width: 170px;
+		width: 200px;
 		color: white;
 		float: right;
 		padding: 0 0 5px 10px;

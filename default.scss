@@ -27,10 +27,20 @@ textarea, button, select
 
 .active
 {
-	background-color: $orange;
+	background-color: $orange !important;
 }
 
 .inactive
 {
-	background-color: rgba(white, 0.5);
+	background-color: rgba(white, 0.5) !important;
+}
+
+.bactive
+{
+	background-color: rgba(white, 0.5) !important;
+}
+
+.binactive
+{
+	background-color: rgba(white, 0.3) !important;
 }

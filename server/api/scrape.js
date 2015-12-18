@@ -18,7 +18,6 @@ Meteor.startup(function(){
 	        	movies.push(title);
 	        }
         	
-	        
 	        return movies;
 		}
 	})
@@ -29,5 +28,3 @@ var s = $('div.posters > div:nth-child(3)').html();
 s = s.substring(0, s.indexOf('">'));
 s = s.split("id=").pop();
 **/
-
-
