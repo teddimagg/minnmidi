@@ -130,7 +130,7 @@ Template.editmovie.events({
 		}
 	},
 	'click .addTime': function(event){
-		var m = moment("2015-12-18 19:50");
+		var m = moment("2015-12-20 19:50");
 		m = m.format("DD.MM.YYYY HH:mm");
 		var syning = {time: m, bio: "laugaras"};
 		movieEvents.update(this._id, { $push:{

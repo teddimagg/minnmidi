@@ -9,6 +9,7 @@ Template.nav.onRendered(function() {
 	Session.set('sortType', 1);
 	Session.set('genreType', "");
 	Session.set('biohus', "");
+	Session.set('biodagur', "");
   	$(window).resize(function() {
 	  	if($(window).width() < 800)
 	  	{
@@ -27,26 +28,56 @@ Template.bio.helpers({
 		var sort = Session.get('sortType');
 		var gen = Session.get('genreType');
 		var bio = Session.get('biohus');
+		var dagur = Session.get('biodagur');
 		var ret;
+						movieEvents.find({'syningar.time': {'$regex' : '.*18.12.2015.*'}}).fetch();
 		switch(sort){
 			case 0:
-				if(bio == "")
+				if(dagur == "")
 				{
-					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}},{sort:{nafn: 1}}).fetch();
+					if(bio == "")
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}},{sort:{nafn: 1}}).fetch();
+					}
+					else
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio},{sort:{nafn: 1}}).fetch();
+					}
 				}
 				else
 				{
-					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio},{sort:{nafn: 1}}).fetch();
+					if(bio == "")
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.time': {'$regex' : '.*' + dagur + '.*'}},{sort:{nafn: 1}}).fetch();
+					}
+					else
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.time': {'$regex' : '.*' + dagur + '.*'}, 'syningar.bio': bio},{sort:{nafn: 1}}).fetch();
+					}
 				}
 			break;
 			case 1:
-				if(bio == "")
+				if(dagur == "")
 				{
-					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}}).fetch();
+					if(bio == "")
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}}).fetch();
+					}
+					else
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio}).fetch();
+					}
 				}
 				else
 				{
-					ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.bio': bio}).fetch();
+					if(bio == "")
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.time': {'$regex' : '.*' + dagur + '.*'}}).fetch();
+					}
+					else
+					{
+						ret = movieEvents.find({'tegund': {'$regex' : '.*' + gen + '.*'}, 'syningar.time': {'$regex' : '.*' + dagur + '.*'}, 'syningar.bio': bio}).fetch();
+					}
 				}
 				break;
 			case 2:
@@ -77,12 +108,12 @@ Template.filter.helpers({
 				st = vikan[dow];
 			}
 			tomorrow = tomorrow.format("DD.MM");
-			var tom = {dd:st,dn:tomorrow,y:y}
+			var tom = {c:i,dd:st,dn:tomorrow,y:y};
 			week[i] = tom;
 		}
 		var y = today.format(".YYYY");
 		today = today.format("DD.MM");
-		var tod = {dd:'Í dag',dn:today,y:y};
+		var tod = {c:'0',dd:'Í dag',dn:today,y:y};
 		week[0] = tod;
 		
 		return week;
@@ -139,9 +170,18 @@ Template.filter.events({
 			Session.set('genreType', genre);
 		}
 	},
-	'click .biodagur': function(event){		
-		console.log(this.dn + this.y);
-		//movieEvents.find({'syningar.timi': this}).fetch();
+	'click .biodags ul li': function(event){		
+		$('.biodags ul li').removeClass("active");
+		var cur = Session.get('biodagur');
+		if(cur == (this.dn + this.y))
+		{
+			Session.set('biodagur', "");
+		}
+		else
+		{
+			$("." + this.c).addClass("active");
+			Session.set('biodagur', this.dn + this.y);
+		}
 	},
 	'click .biohus ul li': function(event){
 		$('.biohus ul li').removeClass("active");
