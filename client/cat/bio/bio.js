@@ -30,7 +30,6 @@ Template.bio.helpers({
 		var bio = Session.get('biohus');
 		var dagur = Session.get('biodagur');
 		var ret;
-						movieEvents.find({'syningar.time': {'$regex' : '.*18.12.2015.*'}}).fetch();
 		switch(sort){
 			case 0:
 				if(dagur == "")

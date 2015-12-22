@@ -11,7 +11,7 @@ Template.admin.events({
 		var tegund = $('[name="tegund"]').val();
 		var leikarar = $('[name="leikarar"]').val();
 		var leikstjori = $('[name="leikstjori"]').val();
-
+    
 		movieEvents.insert({
 			nafn: nafn,
 			mynd: mynd,
@@ -51,6 +51,14 @@ Template.admin.events({
 				$('[name="tegund"]').val(genres);
 			}
 		});
+		name = $('[name="nafn"]').val();
+		Meteor.call('trailer', name, function (error, result) {
+            if (error) {
+                console.log("error", error);
+            };
+            var trailer = "https://www.youtube.com/embed/" + result;
+            $('[name="trailer"]').val(trailer);
+        });
 	}
 });
 
@@ -105,6 +113,13 @@ Template.editmovie.events({
 		var tegund = $('[name="tegund"]').val();
 		var leikarar = $('[name="leikarar"]').val();
 		var leikstjori = $('[name="leikstjori"]').val();
+
+		if(trailer != "")
+		{
+			trailer = generateTrailer(trailer);
+			console.log(trailer);
+		}
+
 		movieEvents.update(this._id, { $set:{
 			nafn: nafn,
 			mynd: mynd,
@@ -130,9 +145,9 @@ Template.editmovie.events({
 		}
 	},
 	'click .addTime': function(event){
-		var m = moment("2015-12-20 19:50");
+		var m = moment("2015-12-22 19:50");
 		m = m.format("DD.MM.YYYY HH:mm");
-		var syning = {time: m, bio: "laugaras"};
+		var syning = {time: m, bio: "skringlan"};
 		movieEvents.update(this._id, { $push:{
 			syningar: syning
 		}});

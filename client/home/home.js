@@ -1,6 +1,21 @@
 Template.home.events({
     'click .lauga': function(event)
     {
+        Meteor.call('trailer','interstellar', function (error, result) {
+            if (error) {
+                console.log("error", error);
+            };
+            Session.set('bio', result);
+        });
+        var t = Session.get('bio');
+        console.log(t);
+    }
+});
+
+/**
+ *
+    'click .lauga': function(event)
+    {
         Meteor.call('scrape', function (error, result) {
             if (error) {
                 console.log("error", error);
@@ -11,7 +26,9 @@ Template.home.events({
 
         console.log(smegma);
     }
-});
+ *
+ */
+
 
 /**
  *

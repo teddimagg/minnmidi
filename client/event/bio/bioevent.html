@@ -8,13 +8,56 @@
 			<img src="{{mynd}}"/>
 		</div>
 		<div class="bioeventright">
-			<h2>Lýsing</h2>
-			<p>{{lysing}}</p>
+			<ul>
+				<li class="biolys active">Lýsing</li>
+				<li class="biotrail">Sýnishorn</li>
+			</ul>
+			<div class="biocont">
+			{{#if desc}}
+				{{> biotrailer}}
+			{{else}}
+				{{> biodesc}}
+			{{/if}}
+			</div>
 		</div>
-		<div class="bioeventweek">
-			{{> week}}
+		<div class="bioeventright">
+			<ul>
+				{{#each biohus}}
+					<li class="{{nm}}">{{nafn}}</li>
+				{{/each}}
+			</ul>
+			<div class="biocont">
+				{{> week}}
+			</div>
 		</div>
 	</div>
+</template>
+
+<template name="biodesc">
+<table class="biodesctable">
+	<tr>
+		<td>Leikstjóri</td>
+		<td>{{lekstjori}}</td>
+	</tr>
+	<tr>
+		<td>Helstu leikarar</td>
+		<td>{{leikarar}}</td>
+	</tr>
+	<tr>
+		<td>Lengd</td>
+		<td>{{lengd}}</td>
+	</tr>
+	<tr>
+		<td>Tegund</td>
+		<td>{{tegund}}</td>
+	</tr>	
+</table>
+<h3>Lýsing</h3>
+{{lysing}}
+</template>
+
+<template name="biotrailer">
+	<iframe src="{{trailer}}" frameborder="0" allowfullscreen></iframe>
 </template>
 
 <template name="week">

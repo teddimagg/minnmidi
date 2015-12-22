@@ -2,7 +2,8 @@
 
 .bioeventview
 {
-	padding: 20px 20px;
+	height: 800px;
+	//padding: 20px 20px;
 	background:
 	{
 		color: $dgray;
@@ -13,9 +14,11 @@
 .bioeventhead
 {
 	height: 55px;
+	padding: 20px;
+	background-color: $ddgray;
 	h1
 	{
-		padding: 0;
+		padding: 10px 0;
 		margin: 0;
 		float: left;
 	}	
@@ -35,17 +38,82 @@
 
 .bioeventleft
 {
+	width: 25%;
+	padding: 20px;
 	float: left;
 	img
 	{
-		height: 600px;
+		width: 100%;
 	}	
 }
 
 .bioeventright
+{	
+	width: calc(75% - 60px);
+	margin: 20px 20px 0 0;
+	background-color: $blue;
+	float: right;
+	min-height: 300px;
+
+	ul
+	{
+		padding: 0;
+		margin: 12px 0 0 0;
+		list-style: none;
+		li
+		{
+			padding: 15px 25px;
+			margin-right: -4px;
+			font-size: 22px;
+			display: inline;
+			&:hover
+			{
+				cursor: pointer;
+				background-color: rgba($orange, 0.7);
+			}
+		}
+	}
+}
+
+.biocont
 {
-	float: left;
-	min-height: 600px;
+	font-size: 18px;
+	margin: 20px 10px 20px 10px;
+
+	iframe
+	{
+		width: 80%;
+		height: 350px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-left: 10%;
+	}
+}
+
+.biodesctable
+{
+	h3
+	{
+		color: red;
+	}
+
+	tr
+	{
+		td
+		{
+			min-width: 120px;
+			&:nth-child(2)
+			{
+				width: 90%;
+				text-align: right;
+			}
+		}
+	}
+}
+
+.bioeventnedri
+{
+	margin-top: 50px;
 }
 
 @media only screen and (max-width : 600px) {

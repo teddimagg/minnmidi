@@ -19,6 +19,19 @@ Meteor.startup(function(){
 	        }
         	
 	        return movies;
+		},
+		trailer: function(name) {
+			name = name.split(' ').join('+');
+			url = 'https://www.youtube.com/results?search_query=' + name + '+trailer'
+			console.log(url);
+			result = Meteor.http.get(url);
+	        $ = cheerio.load(result.content);
+
+	        var a = $('.yt-thumb-simple').html();
+	        a = a.substring(27);
+	        a = a.slice(0, -48);
+	        console.log(a);
+	        return a;
 		}
 	})
 });

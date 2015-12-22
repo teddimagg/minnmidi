@@ -6,7 +6,7 @@ Meteor.methods({
 				year = "";
 			}
 
-			var url = "http://www.omdbapi.com/?t="+name+"&y="+year+"&plot=short&r=json";
+			var url = "http://www.omdbapi.com/?t="+name+"&y="+year+"&plot=full&r=json";
 			console.log(url);
 			//synchronous GET
 			var result = Meteor.http.get(url, {timeout:30000});
